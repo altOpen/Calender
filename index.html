@@ -5,11 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>Assam Holiday Calendar</title>
 
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Assam Cal">
+
+<link rel="apple-touch-icon" href="https://github.com/altOpen/Calender/blob/main/logo.png?raw=true">
+<link rel="icon" type="image/png" href="https://github.com/altOpen/Calender/blob/main/logo.png?raw=true">
+
 <style>
   :root {
     --primary-red: #d32f2f;
     --primary-blue: #007AFF;
-    --restricted-blue: #0056b3; /* Darker blue for text readability */
+    --restricted-blue: #0056b3; 
     --bg-color: #f2f4f7;
     --card-bg: #ffffff;
     --text-main: #1f2937;
@@ -113,12 +120,12 @@
     transform: scale(0.9);
   }
 
-  /* --- LEGEND (Updated) --- */
+  /* --- LEGEND --- */
   .legend {
     flex-shrink: 0;
     display: flex;
-    flex-direction: column; /* Stack lines vertically */
-    gap: 8px; /* Space between lines */
+    flex-direction: column;
+    gap: 8px;
     margin: 12px 0;
     font-size: 11px;
     color: var(--text-muted);
@@ -239,7 +246,6 @@
 
   /* --- DATE STYLES --- */
   
-  /* Full Holidays (Red Background) */
   .holiday .day-number,
   .sunday .day-number,
   .sat-special .day-number {
@@ -248,13 +254,11 @@
     font-weight: 700;
   }
 
-  /* Restricted Holidays (Blue Text Only) */
   .restricted .day-number {
     color: var(--restricted-blue);
     font-weight: 800;
   }
 
-  /* Today (Blue Circle) - Overrides everything */
   .today .day-number {
     background: var(--primary-blue) !important;
     color: white !important;
@@ -423,45 +427,17 @@ const HOLIDAYS_2026 = {
 
 // --- RESTRICTED HOLIDAYS 2026 ---
 const RESTRICTED_HOLIDAYS_2026 = {
- "1-1": "New Year Day",
- "1-5": "Rongker Karkli",
- "1-13": "Uruka of Magh Bihu",
- "1-17": "Silpi Divas",
- "1-27": "Busu Dima Festival",
- "2-4": "Shab-E-Barat",
- "2-15": "Sivaratri",
- "2-17": "Karbi-Dehal-Kachir Dom",
- "2-18": "Ali Aye Ligang",
- "3-2": "Khring Khring Baithow Puja",
- "3-17": "Lailatur Qadar",
- "3-25": "Tora Chira Bihu",
- "3-31": "Mahabir Jayanti",
- "4-4": "Easter Saturday",
- "4-15": "Deuri Bihu",
- "4-18": "Birthday of Gurudev Kalicharan Brahma",
- "4-22": "Tithi of Gopal Dev",
- "5-1": "Sati Radhika Utsav",
- "5-16": "Tithi of Hari Dev",
- "5-23": "Birthday of Sri Sri Krishnaguru",
- "5-24": "Motak Roja Swargadeo Sarbananda Singha Divas",
- "5-31": "Baikhowa Festival",
- "6-20": "Death Anniversary of Bishnu Prasad Rabha",
- "6-30": "Hul Divas",
- "7-13": "Birthday of Nepali Poet Bhanu Bhakta Acharya",
- "8-13": "Death Anniversary of Bir Tikendrajit",
- "8-26": "Fateha-e-Dwaz-Daham",
- "9-15": "Nau Khai Festival",
- "9-16": "Birthday of Sri Sri Thakur Anukul Chandra",
- "11-1": "Kuki Chavang Kut",
- "11-7": "Wangala Festival",
- "11-11": "Abhibhav Tithi of Sri Sri Bhubaneswar Sadhu Thakur",
- "11-19": "Bir Raghav Moran Divas",
- "11-24": "Death Anniversary of Guru Teg Bahadur Ji",
- "12-5": "Sikpui Ruoi (Harvest Festival of Hmar Community)",
- "12-10": "Martyr’s Day",
- "12-19": "Death Anniversary of Shree Shree Aniruddhadev",
- "12-22": "Gaan Ngai",
- "12-24": "Christmas Eve"
+ "1-1": "New Year Day", "1-5": "Rongker Karkli", "1-13": "Uruka of Magh Bihu", "1-17": "Silpi Divas",
+ "1-27": "Busu Dima Festival", "2-4": "Shab-E-Barat", "2-15": "Sivaratri", "2-17": "Karbi-Dehal-Kachir Dom",
+ "2-18": "Ali Aye Ligang", "3-2": "Khring Khring Baithow Puja", "3-17": "Lailatur Qadar", "3-25": "Tora Chira Bihu",
+ "3-31": "Mahabir Jayanti", "4-4": "Easter Saturday", "4-15": "Deuri Bihu", "4-18": "Birthday of Gurudev Kalicharan Brahma",
+ "4-22": "Tithi of Gopal Dev", "5-1": "Sati Radhika Utsav", "5-16": "Tithi of Hari Dev", "5-23": "Birthday of Sri Sri Krishnaguru",
+ "5-24": "Motak Roja Swargadeo Sarbananda Singha Divas", "5-31": "Baikhowa Festival", "6-20": "Death Anniversary of Bishnu Prasad Rabha",
+ "6-30": "Hul Divas", "7-13": "Birthday of Nepali Poet Bhanu Bhakta Acharya", "8-13": "Death Anniversary of Bir Tikendrajit",
+ "8-26": "Fateha-e-Dwaz-Daham", "9-15": "Nau Khai Festival", "9-16": "Birthday of Sri Sri Thakur Anukul Chandra",
+ "11-1": "Kuki Chavang Kut", "11-7": "Wangala Festival", "11-11": "Abhibhav Tithi of Sri Sri Bhubaneswar Sadhu Thakur",
+ "11-19": "Bir Raghav Moran Divas", "11-24": "Death Anniversary of Guru Teg Bahadur Ji", "12-5": "Sikpui Ruoi",
+ "12-10": "Martyr’s Day", "12-19": "Death Anniversary of Shree Shree Aniruddhadev", "12-22": "Gaan Ngai", "12-24": "Christmas Eve"
 };
 
 let viewDate = new Date(); 
@@ -544,7 +520,6 @@ function renderCalendar(){
     let restrictedName = currentRestrictedList[key];
     let isRestricted = !!restrictedName;
 
-    // Apply Classes
     if(isHoliday) classes.push("holiday");
     else if(isRestricted) classes.push("restricted"); 
     
@@ -599,7 +574,7 @@ function handleDateClick(info){
 
   // 2. Priority: Restricted Holiday
   if(info.isRestricted){
-    msg = "Restricted Holiday : " + info.restrictedName;
+    msg = "Restricted Holiday: " + info.restrictedName;
     if(dow === 0) msg += " (Sunday)";
     else if(dow === 6){
       if(info.day === info.secondSat) msg += " (Second Saturday)";
@@ -623,4 +598,5 @@ renderCalendar();
 </script>
 
 </body>
-</html>
+    </html>
+  

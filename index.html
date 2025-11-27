@@ -3,25 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>Japi</title>
+<title>Assam Holiday Calendar</title>
 
-<!-- ========================================== -->
-<!-- APP ICON CONFIGURATION (CDN FIXED)         -->
-<!-- ========================================== -->
-<!-- We use jsdelivr to serve the GitHub image as a proper raw file -->
-<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/altOpen/Calender@main/logo.png">
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/altOpen/Calender@main/logo.png">
-<meta name="theme-color" content="#d32f2f">
-
-<!-- iOS Configuration -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Japi">
-<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/altOpen/Calender@main/logo.png">
+<meta name="apple-mobile-web-app-title" content="Japi - Holiday Calender">
 
-<!-- Android Manifest (Embedded) -->
-<!-- Uses the absolute CDN URL to ensure Android downloads the specific logo, not the default GitHub one -->
-<link rel="manifest" href='data:application/manifest+json,{"short_name":"Japi","name":"Japi","icons":[{"src":"https://cdn.jsdelivr.net/gh/altOpen/Calender@main/logo.png","type":"image/png","sizes":"192x192","purpose":"any maskable"},{"src":"https://cdn.jsdelivr.net/gh/altOpen/Calender@main/logo.png","type":"image/png","sizes":"512x512","purpose":"any maskable"}],"start_url":".","display":"standalone","theme_color":"#d32f2f","background_color":"#ffffff"}'>
+<link rel="apple-touch-icon" href="https://github.com/altOpen/Calender/blob/main/logo.png?raw=true">
+<link rel="icon" type="image/png" href="https://github.com/altOpen/Calender/blob/main/logo.png?raw=true">
 
 <style>
   :root {
@@ -213,21 +202,18 @@
     color: var(--text-main);
   }
 
-  /* --- FOOTER (Updated) --- */
+  /* --- FOOTER --- */
   footer {
     flex-shrink: 0;
     padding-top: 12px;
     padding-bottom: 8px;
     border-top: 1px solid #f3f4f6;
     background: var(--card-bg);
-    
-    /* Layout for stacking text + button */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 6px;
-    position: relative;
   }
   
   .copyright-text {
@@ -236,32 +222,30 @@
     color: #9ca3af;
   }
 
-  /* Terms Button: Absolute Right, Bottom aligned */
   #infoBtn {
-    position: absolute;
-    right: 0;
-    bottom: 6px;
-    
     background: transparent;
     border: none;
     box-shadow: none;
     padding: 4px 8px;
     font-family: var(--font-family);
-    font-size: 9px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 500;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    border-radius: 4px;
     transition: all 0.2s;
   }
   
   #infoBtn:active {
     color: var(--primary-blue);
+    background: #eff6ff;
   }
 
   /* --- DATE STYLES --- */
+  
   .holiday .day-number,
   .sunday .day-number,
   .sat-special .day-number {
@@ -400,7 +384,6 @@
 
 </div>
 
-<!-- Modal -->
 <div id="modalOverlay">
   <div id="modalBox">
     <div id="modalTitle">Info</div>
@@ -529,9 +512,11 @@ function renderCalendar(){
 
     let classes = [];
     
+    // Check Full Holiday
     let holidayName = currentHolidayList[key];
     let isHoliday = !!holidayName;
 
+    // Check Restricted Holiday
     let restrictedName = currentRestrictedList[key];
     let isRestricted = !!restrictedName;
 
@@ -575,6 +560,7 @@ function handleDateClick(info){
   const dow = info.dateObj.getDay();
   let msg = "";
 
+  // 1. Priority: Full Holiday
   if(info.isHoliday){
     msg = info.holidayName;
     if(dow === 0) msg += " (Sunday)";
@@ -586,6 +572,7 @@ function handleDateClick(info){
     return;
   }
 
+  // 2. Priority: Restricted Holiday
   if(info.isRestricted){
     msg = "Restricted Holiday: " + info.restrictedName;
     if(dow === 0) msg += " (Sunday)";
@@ -611,5 +598,5 @@ renderCalendar();
 </script>
 
 </body>
-</html>
-
+    </html>
+  
